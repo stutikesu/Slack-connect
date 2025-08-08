@@ -1,31 +1,38 @@
-# Slack Connect
-
+Slack Connect
 A full-stack application that enables users to connect their Slack workspace, send messages immediately, and schedule messages for future delivery.
 
-## Features
+Features
+Secure Slack Connection & Token Management
 
-- **Secure Slack Connection & Token Management**
-  - OAuth 2.0 flow to connect to a Slack workspace
-  - Secure storage of access and refresh tokens
-  - Automatic token refresh when old ones expire
+OAuth 2.0 flow to connect to a Slack workspace
 
-- **Message Sending**
-  - Send messages immediately to any Slack channel
-  - Schedule messages for future delivery
+Secure storage of access and refresh tokens
 
-- **Scheduled Message Management**
-  - View all scheduled messages
-  - Cancel scheduled messages before their send time
+Automatic token refresh when tokens expire
 
-## Technology Stack
+Message Sending
 
-- **Frontend**: React, TypeScript, Vite
-- **Backend**: Node.js, Express, TypeScript
-- **Database**: SQLite
+Send messages immediately to any Slack channel
 
-## Project Structure
+Schedule messages for future delivery
 
-```
+Scheduled Message Management
+
+View all scheduled messages
+
+Cancel scheduled messages before their send time
+
+Technology Stack
+Frontend: React, TypeScript, Vite
+
+Backend: Node.js, Express, TypeScript
+
+Database: SQLite
+
+Project Structure
+php
+Copy
+Edit
 ├── backend/             # Backend Node.js application
 │   ├── src/             # TypeScript source code
 │   │   ├── database/    # Database configuration and models
@@ -44,53 +51,79 @@ A full-stack application that enables users to connect their Slack workspace, se
 │   ├── package.json     # Frontend dependencies
 │   └── tsconfig.json    # TypeScript configuration
 └── package.json         # Root package.json for scripts
-```
+Setup Instructions
+Prerequisites
+Node.js (v14 or higher)
 
-## Setup Instructions
+npm or yarn
 
-### Prerequisites
+A Slack account with permission to create apps
 
-- Node.js (v14 or higher)
-- npm or yarn
-- A Slack account with permission to create apps
+Slack App Setup
+Go to Slack API and create a new app.
 
-### Slack App Setup
+Under OAuth & Permissions, add these scopes:
+channels:read, channels:history, chat:write, chat:write.public, groups:read, im:read, mpim:read
 
-1. Go to [Slack API](https://api.slack.com/apps) and create a new app
-2. Under "OAuth & Permissions", add the following scopes:
-   - `channels:read`
-   - `channels:history`
-   - `chat:write`
-   - `chat:write.public`
-   - `groups:read`
-   - `im:read`
-   - `mpim:read`
-4. Install the app to your workspace
-5. Note your Client ID and Client Secret
+Install the app to your workspace.
 
-### Application Setup
+Note your Client ID and Client Secret.
 
-1. Clone the repository
-2. Create `.env` files in the backend directory (copy from `.env.example`)
-3. Add your Slack Client ID and Client Secret to the `.env` file
-4. Install dependencies:
-   ```
-   npm run install:all
-   ```
-5. Start the development servers:
-   ```
-   npm run dev
-   ```
+Application Setup
+Clone the repository:
 
-## Usage
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/your-repo-name.git
+cd your-repo-name
+Create .env files in the backend directory (copy from .env.example):
 
-1. Open your browser and navigate to `http://localhost:5173/connect`
-2. Click "Connect to Slack" to authorize the application
-3. Once connected, you can:
-   - Send immediate messages to any channel
-   - Schedule messages for future delivery
-   - View and manage scheduled messages
+bash
+Copy
+Edit
+cp backend/.env.example backend/.env
+Add your Slack Client ID and Client Secret to backend/.env.
 
-## License
+Install dependencies for both frontend and backend:
 
+bash
+Copy
+Edit
+npm run install:all
+Start the development servers:
+
+bash
+Copy
+Edit
+npm run dev
+Open your browser and go to http://localhost:5173/connect
+
+Usage
+Click Connect to Slack to authorize the application.
+
+After connecting, you can:
+
+Send immediate messages to any channel.
+
+Schedule messages for future delivery.
+
+View and manage scheduled messages.
+
+Architectural Overview
+OAuth 2.0 Flow: The app uses Slack OAuth to securely authorize user workspaces and get access and refresh tokens.
+
+Token Management: Access and refresh tokens are securely stored in SQLite. The backend refreshes expired tokens automatically before making Slack API calls.
+
+Scheduled Task Handling: Scheduled messages are stored with timestamps. A backend scheduler processes and sends messages at the right time.
+
+Challenges & Learnings
+Implementing a robust OAuth 2.0 flow with refresh tokens was complex but essential for seamless user experience.
+
+Managing scheduled messages reliably required careful handling of time zones and server cron jobs.
+
+Ensuring secure storage and refresh of tokens taught valuable lessons in security best practices.
+
+License
 ISC
+
