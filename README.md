@@ -1,80 +1,80 @@
-Slack Connect
+# Slack Connect
+
 A full-stack application that enables users to connect their Slack workspace, send messages immediately, and schedule messages for future delivery.
 
-Features
-Secure Slack Connection & Token Management
+---
 
-OAuth 2.0 flow to connect to a Slack workspace
+## Features
 
-Secure storage of access and refresh tokens
+- **Secure Slack Connection & Token Management**
+  - OAuth 2.0 flow to connect to a Slack workspace
+  - Secure storage of access and refresh tokens
+  - Automatic token refresh when tokens expire
 
-Automatic token refresh when tokens expire
+- **Message Sending**
+  - Send messages immediately to any Slack channel
+  - Schedule messages for future delivery
 
-Message Sending
+- **Scheduled Message Management**
+  - View all scheduled messages
+  - Cancel scheduled messages before their send time
 
-Send messages immediately to any Slack channel
+---
 
-Schedule messages for future delivery
+## Technology Stack
 
-Scheduled Message Management
+- Frontend: React, TypeScript, Vite  
+- Backend: Node.js, Express, TypeScript  
+- Database: SQLite  
 
-View all scheduled messages
+---
 
-Cancel scheduled messages before their send time
+├── backend/ # Backend Node.js application
+│ ├── src/ # TypeScript source code
+│ │ ├── database/ # Database configuration and models
+│ │ ├── routes/ # API routes
+│ │ ├── services/ # Business logic services
+│ │ └── server.ts # Express server entry point
+│ ├── package.json # Backend dependencies
+│ └── tsconfig.json # TypeScript configuration
+├── frontend/ # React frontend application
+│ ├── public/ # Static assets
+│ ├── src/ # TypeScript source code
+│ │ ├── components/ # Reusable UI components
+│ │ ├── contexts/ # React contexts
+│ │ ├── pages/ # Page components
+│ │ └── App.tsx # Main application component
+│ ├── package.json # Frontend dependencies
+│ └── tsconfig.json # TypeScript configuration
+└── package.json # Root package.json for scripts
 
-Technology Stack
-Frontend: React, TypeScript, Vite
+## Project Structure
 
-Backend: Node.js, Express, TypeScript
 
-Database: SQLite
 
-Project Structure
-php
-Copy
-Edit
-├── backend/             # Backend Node.js application
-│   ├── src/             # TypeScript source code
-│   │   ├── database/    # Database configuration and models
-│   │   ├── routes/      # API routes
-│   │   ├── services/    # Business logic services
-│   │   └── server.ts    # Express server entry point
-│   ├── package.json     # Backend dependencies
-│   └── tsconfig.json    # TypeScript configuration
-├── frontend/            # React frontend application
-│   ├── public/          # Static assets
-│   ├── src/             # TypeScript source code
-│   │   ├── components/  # Reusable UI components
-│   │   ├── contexts/    # React contexts
-│   │   ├── pages/       # Page components
-│   │   └── App.tsx      # Main application component
-│   ├── package.json     # Frontend dependencies
-│   └── tsconfig.json    # TypeScript configuration
-└── package.json         # Root package.json for scripts
-Setup Instructions
-Prerequisites
-Node.js (v14 or higher)
+---
 
-npm or yarn
+## Setup Instructions
 
-A Slack account with permission to create apps
+### Prerequisites
 
-Slack App Setup
-Go to Slack API and create a new app.
+- Node.js (v14 or higher)  
+- npm or yarn  
+- A Slack account with permission to create apps  
 
-Under OAuth & Permissions, add these scopes:
-channels:read, channels:history, chat:write, chat:write.public, groups:read, im:read, mpim:read
+### Slack App Setup
 
-Install the app to your workspace.
+1. Go to [Slack API](https://api.slack.com/apps) and create a new app.
+2. Under **OAuth & Permissions**, add these scopes:  
+   `channels:read`, `channels:history`, `chat:write`, `chat:write.public`, `groups:read`, `im:read`, `mpim:read`
+3. Install the app to your workspace.
+4. Note your **Client ID** and **Client Secret**.
 
-Note your Client ID and Client Secret.
+### Application Setup
 
-Application Setup
-Clone the repository:
+1. Clone the repository:
 
-bash
-Copy
-Edit
+
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 Create .env files in the backend directory (copy from .env.example):
@@ -126,4 +126,6 @@ Ensuring secure storage and refresh of tokens taught valuable lessons in securit
 
 License
 ISC
+
+
 
