@@ -84,7 +84,7 @@ A full-stack application that enables users to connect their Slack workspace, se
 
 ## Usage
 
-1. Open your browser and navigate to `http://localhost:5173`
+1. Open your browser and navigate to `http://localhost:5173/connect`
 2. Click "Connect to Slack" to authorize the application
 3. Once connected, you can:
    - Send immediate messages to any channel
